@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Untitled</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.4/lib/p5.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5.sound@0.4.1/dist/p5.sound.min.js"></script>
-  </head>
+  <title>Untitled</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@2.3.4/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5.sound@0.4.1/dist/p5.sound.min.js"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap"
+    rel="stylesheet">
+</head>
   <body>
     <script>
       let circleX = 100;
       let circleY = 400;
       let circleSize = 50;
+      let myFont;
 
-      function setup () {
+     async function setup () {
         createCanvas(800, 600);
          background("#F2B1B7");
        // colorMode(HSL, 100, 75, 100);
@@ -22,6 +28,8 @@
         let interC = lerpColor(from, to, 0.5);
         fill(interC);
         ellipse(circleX, circleY, circleSize);
+       
+       myFont = await loadFont('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 
       }
 
@@ -58,8 +66,16 @@
       fill(191,225,18);
       stroke(122,32,91);
       strokeWeight(3);
-      textFont('serif');
+      textFont('Gamja Flower');
+      //textStyle(BOLDITALIC);
+      //textAlign(CENTER, TOP);
       text(str, 500, 450);
+      let des = textAscent();
+      stroke('red');
+      line(500, 450, 500 + des, 450);
+      textWeight(400);
+      textLeading(80);
+      text("ce\nter", 500, 480);
       
       }
     </script>
